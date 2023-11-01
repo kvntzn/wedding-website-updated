@@ -145,21 +145,22 @@ $(document).ready(function () {
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(po, s);
 
-    for (var i = 0; i < share_bar.length; i++) {
-        var html = '<iframe allowtransparency="true" frameborder="0" scrolling="no"' +
-            'src="https://platform.twitter.com/widgets/tweet_button.html?url=' + encodeURIComponent(window.location) + '&amp;text=' + encodeURIComponent(document.title) + '&amp;via=ramswarooppatra&amp;hashtags=ramandantara&amp;count=horizontal"' +
-            'style="width:105px; height:21px;">' +
-            '</iframe>' +
+    // for (var i = 0; i < share_bar.length; i++) {
+    //     var html = '<iframe allowtransparency="true" frameborder="0" scrolling="no"' +
+    //         'src="https://platform.twitter.com/widgets/tweet_button.html?url=' + encodeURIComponent(window.location) + '&amp;text=' + encodeURIComponent(document.title) + '&amp;hashtags=kevinandricamae&amp;count=horizontal"' +
+    //         'style="width:105px; height:21px;">' +
+    //         '</iframe>';
 
-            '<iframe src="//www.facebook.com/plugins/like.php?href=' + encodeURIComponent(window.location) + '&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21&amp;appId=101094500229731&amp;width=150" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>' +
+    //         // '<iframe src="https://www.facebook.com/plugins/share_button.php?href=' +  encodeURIComponent(window.location) + '&layout&size&width=77&height=20&appId="1514957212668456" width="77" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>' +
+    //         // '<iframe src="//www.facebook.com/plugins/like.php?href=' + encodeURIComponent(window.location) + '&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21&amp;appId=1514957212668456&amp;width=150" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>' +
 
-            '<div class="g-plusone" data-size="medium"></div>';
+    //         // '<div class="g-plusone" data-size="medium"></div>';
 
-        // '<iframe src="https://plusone.google.com/_/+1/fastbutton?bsv&amp;size=medium&amp;url=' + encodeURIComponent(window.location) + '" allowtransparency="true" frameborder="0" scrolling="no" title="+1" style="width:105px; height:21px;"></iframe>';
+    //     // '<iframe src="https://plusone.google.com/_/+1/fastbutton?bsv&amp;size=medium&amp;url=' + encodeURIComponent(window.location) + '" allowtransparency="true" frameborder="0" scrolling="no" title="+1" style="width:105px; height:21px;"></iframe>';
 
-        share_bar[i].innerHTML = html;
-        share_bar[i].style.display = 'inline-block';
-    }
+    //     share_bar[i].innerHTML = html;
+    //     share_bar[i].style.display = 'inline-block';
+    // }
 
     /********************** Embed youtube video *********************/
     $('.player').YTPlayer();
@@ -200,7 +201,7 @@ $(document).ready(function () {
             address: 'Century Hotel, Angeles',
 
             // Event Description
-            description: "We can't wait to see you on our big day. For any queries or issues, please contact Mr. Amit Roy at +91 9876543210."
+            description: "We can't wait to see you on our big day."
         }
     });
 
@@ -218,7 +219,7 @@ $(document).ready(function () {
             && MD5($('#invite_code').val()) !== '2ac7f43695eb0479d5846bb38eec59cc') {
             $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
         } else {
-            $.post('https://script.google.com/macros/s/AKfycbyo0rEknln8LedEP3bkONsfOh776IR5lFidLhJFQ6jdvRiH4dKvHZmtoIybvnxpxYr2cA/exec', data)
+            $.post('https://script.google.com/macros/s/AKfycbzmrSz2T-U_ao3hlXlp-KtI9kcEz6giWhvs4H4osuUxVO9ZNzPvzW-hRLPMPG6MPFap/exec', data)
                 .done(function (data) {
                     console.log(data);
                     if (data.result === "error") {
