@@ -1,3 +1,7 @@
+var map
+var churchLocation = { lat: 15.224825435710397, lng: 120.57308531081557 }
+var receptionLocation = { lat: 15.163740802899037, lng: 120.58910926689715 }
+
 $(document).ready(function () {
   /***************** Waypoints ******************/
 
@@ -199,11 +203,19 @@ $(document).ready(function () {
     $('#map-content').toggleClass('toggle-map-content')
     $('#btn-show-content').toggleClass('toggle-map-content')
   })
+  $('#btn-show-map-reception').click(function () {
+    $('#map-content').toggleClass('toggle-map-content')
+    $('#btn-show-content').toggleClass('toggle-map-content')
+  })
+
   $('#btn-show-content').click(function () {
     $('#map-content').toggleClass('toggle-map-content')
     $('#btn-show-content').toggleClass('toggle-map-content')
   })
   $('#church-location-tab').click(function () {
+    map.setZoom(18)
+    map.setCenter(churchLocation)
+
     $('#church-location').css({
       display: 'block',
     })
@@ -219,6 +231,9 @@ $(document).ready(function () {
     })
   })
   $('#reception-location-tab').click(function () {
+    map.setZoom(18)
+    map.setCenter(receptionLocation)
+
     $('#church-location').css({
       display: 'none',
     })
@@ -315,15 +330,19 @@ $(document).ready(function () {
 
 // Google map
 function initMap() {
-  var location = { lat: 15.163740802899037, lng: 120.58910926689715 }
-  var map = new google.maps.Map(document.getElementById('map-canvas'), {
+  map = new google.maps.Map(document.getElementById('map-canvas'), {
     zoom: 15,
-    center: location,
+    center: churchLocation,
     scrollwheel: false,
   })
 
-  var marker = new google.maps.Marker({
-    position: location,
+  var marker1 = new google.maps.Marker({
+    position: churchLocation,
+    map: map,
+  })
+
+  var marker2 = new google.maps.Marker({
+    position: receptionLocation,
     map: map,
   })
 }
